@@ -176,29 +176,34 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
+
+        var studentExists = localStorage.getItem('student');
+        
+        if(studentExists) {
+            var objStudent = JSON.parse(studentExists);
+
+            document.getElementById('firstName').value = objStudent.firstName;
+            document.getElementById('lastName').value = objStudent.lastName;
+            document.getElementById('schoolName').value = objStudent.schoolName;
+            document.getElementById('gpaScore').value = objStudent.gpaScore;
+            document.getElementById('actScore').value = objStudent.actScore;
+            document.getElementById('apCount').value = objStudent.apCount;
+
+        } else {
+            console.log('student is not found');
+        }
+
         function storeStudentData() {
-            /*
-            var firstName = "Sarayu";            
-            var lastName = "Ponnada";
-            var schoolName = "Milton HS";
-            var gpaScore = 4.00;
-            var actScore = 36;
-            var apCount = 12;
-            */
 
             var $studentData = $('#firstName, #lastName, #schoolName, #gpaScore, #actScore, #apCount');
-
             var obj = {}
+            
             $studentData.each(function () {
                 obj[this.id] = $(this).val();
             })
 
             localStorage.setItem("student", JSON.stringify(obj));
-            //location.href = "recommendations.html";
         }
     </script>
-
-
 </body>
-
 </html>
