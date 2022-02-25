@@ -101,48 +101,48 @@
                 matched to the schools that fit your needs.</p>
                 -->
                 <hr>
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="recommendations.html">
                     <div class="control-group">
                         <label class="control-label">First Name</label>
                         <div class="controls">
-                            <input type="text" id="firstName" name="firstName">
+                            <input type="text" id="firstName" name="firstName" required>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Last Name</label>
                         <div class="controls">
-                            <input type="text" id="lastName" name="lastName">
+                            <input type="text" id="lastName" name="lastName" required>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">High School Name</label>
                         <div class="controls">
-                            <input type="text" id="schoolName" name="schoolName">
+                            <input type="text" id="schoolName" name="schoolName" required>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">GPA (weighted)</label>
                         <div class="controls">
-                            <input type="text" id="gpaScore" name="gpaScore">
+                            <input type="number" id="gpaScore" name="gpaScore" min="0.00" max="4.00" step="0.01" value="3.50" required>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">ACT Score</label>
                         <div class="controls">
-                            <input type="number" id="actScore" name="actScore" min="1" max="36" step="1" value="30">
+                            <input type="number" id="actScore" name="actScore" min="1" max="36" step="1" value="30" required>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label"># of AP Classes Taken</label>
                         <div class="controls">
-                            <input type="text" id="apCount" name="apCount">
+                            <input type="number" id="apCount" name="apCount" required>
                         </div>
                     </div>
                     <hr>
                     <div class="form-actions">
                         <!--- <button type="submit" class="btn btn-primary">Sign Up</button> --->
                         
-                        <button id= "button1" onclick="storeStudentData()"> <a href="recommendations.html"> Find Matches </a> </button>
+                        <button type="submit" id= "button1" onclick="storeStudentData()"> Find Matches </button>
                         <button type="reset" class="btn">Reset</button>
                     </div>
                 </form>
@@ -203,7 +203,7 @@
             })
 
             localStorage.setItem("student", JSON.stringify(obj));
-        }
+        } 
     </script>
 </body>
 </html>
