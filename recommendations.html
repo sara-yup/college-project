@@ -77,6 +77,10 @@
             margin-right: 100px;
         }
 
+        #buttonlink {
+            font-size: 16px;
+        }
+
         thead {
             font-family: 'Oxygen', sans-serif;
             font-size: 25px;
@@ -104,7 +108,6 @@
         table, tr {
             border: 1px solid black;
         }
-         
 
     </style>
 
@@ -117,31 +120,26 @@
             <div class="span12">
                 <h1>Check out your results.</h1>
                 <h4 class="muted">Here's what we found based on your stats.</h4>
+                <p> Want to learn more about your results? Click on a college to find out what your recommendation means to you. </p>
                 <hr>
     
                 <div class="row">
                     <table id="table">
                         <thead>
                             <tr>
-                                <th data-field="collegeName" data-formatter="LinkFormatter">College Name</th>
-                                <th data-field="locationCity">City</th>
-                                <th data-field="locationState">State</th>
-                                <th data-field="overallRec">Recommendation</th>
+                                <th data-field="collegeName" data-formatter="LinkFormatter">College Name:</th>
+                                <th data-field="locationCity">City:</th>
+                                <th data-field="locationState">State:</th>
+                                <th data-field="overallRec">Recommendation:</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
             </div>
-            <!-- Footer section -->
-            <div class="container">
-                <hr>
-                <div class="row">
-                    </br>
-                </div>
-            </div>
         </div>
 
-        <button> <a href="student.html"> Edit Profile </a> </button>
+        <hr>
+        <button> <a href="student.html" id="buttonlink"> Edit Profile </a> </button>
 
     
 
