@@ -15,15 +15,14 @@
         integrity="sha512-Ulm5pOx2O8n6XDa0CY2S+GfOmV2R2SrvCpVmhjsxi4VmvcqB5JM5POLuePq496f9CkeAtvPpJlcjLRcTPk79iw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- Include Google Fonts -->    
+    <!-- Include Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen:wght@300;700&display=swap" rel="stylesheet">
 
-    <!-- My CSS -->  
+    <!-- My CSS -->
     <style>
-
-        h1 { 
+        h1 {
             font-family: 'Lora', serif;
             font-size: 75px;
             padding-bottom: 5px;
@@ -46,7 +45,7 @@
             font-size: 20px;
             padding-bottom: 5px;
         }
-        
+
         body {
             margin-top: 100px;
             margin-bottom: 100px;
@@ -84,7 +83,7 @@
         thead {
             font-family: 'Oxygen', sans-serif;
             font-size: 25px;
-            padding-bottom: 5px; 
+            padding-bottom: 5px;
         }
 
         .row {
@@ -105,10 +104,10 @@
             color: #60854e;
         }
 
-        table, tr {
+        table,
+        tr {
             border: 1px solid black;
         }
-
     </style>
 
     <title>Student Results</title>
@@ -120,17 +119,60 @@
             <div class="span12">
                 <h1>Check out your results.</h1>
                 <h4 class="muted">Here's what we found based on your stats.</h4>
-                <p> Want to learn more about your results? Click on a college to find out what your recommendation means to you. </p>
+                <p> Want to learn more about your results? Click on a college to find out what your recommendation means
+                    to you. </p>
                 <hr>
-    
+                <!-- 
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="safetyCheckbox" value="Safety">
+                        <label class="form-check-label" for="safetyCheckbox">Safety</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="targetCheckbox" value="Target">
+                        <label class="form-check-label" for="targetCheckbox">Target</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="reachCheckbox" value="Reach">
+                        <label class="form-check-label" for="reachCheckbox">Reach</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="hardCheckbox" value="Hard Reach">
+                        <label class="form-check-label" for="hardCheckbox">Hard Reach</label>
+                    </div>
+                    -->
+                <div class="form-check form-check-inline">
+                    Filter Results: 
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="recOptions" id="allRadio" value="All" checked>
+                    <label class="form-check-label" for="allRadio">All</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="recOptions" id="safetyRadio" value="Safety">
+                    <label class="form-check-label" for="safetyRadio">Safety</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="recOptions" id="targetRadio" value="Target">
+                    <label class="form-check-label" for="targetRadio">Target</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="recOptions" id="reachRadio" value="Reach">
+                    <label class="form-check-label" for="reachRadio">Reach</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="recOptions" id="hardRadio" value="Hard Reach">
+                    <label class="form-check-label" for="hardRadio">Hard Reach</label>
+                </div>
+                <hr>
                 <div class="row">
-                    <table id="table">
+                    <table id="table" data-sort-name="overallRec" data-sort-order="desc">
                         <thead>
                             <tr>
-                                <th data-field="collegeName" data-formatter="LinkFormatter">College Name:</th>
-                                <th data-field="locationCity">City:</th>
-                                <th data-field="locationState">State:</th>
-                                <th data-field="overallRec">Recommendation:</th>
+                                <th data-field="collegeName" data-formatter="LinkFormatter">College Name</th>
+                                <th data-field="locationCity">City</th>
+                                <th data-field="locationState">State</th>
+                                <th data-field="collegeType">Type</th>
+                                <th data-field="overallRec">Recommendation</th>
                             </tr>
                         </thead>
                     </table>
@@ -141,290 +183,320 @@
         <hr>
         <button> <a href="student.html" id="buttonlink"> Edit Profile </a> </button>
 
-    
+        <!-- Include jQuery and other required files for Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.0/umd/popper.min.js"
+            integrity="sha512-PZrlUFhlOigX38TOCMdaYkhiqa/fET/Lztzjn+kdGxefUZanNUfmHv+9M/wSiOHzlcLX/vcCnmvOZSHi5Dqrsw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous"></script>
 
+        <!-- Include the JavaScript file for Bootstrap table -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.19.1/bootstrap-table.min.js"
+            integrity="sha512-SoNdA/8QMSSlEcJAXKdAALavPMfGJnoh/96Tosg3qxQhdktSAttyHT7ePJghxJNvLCeyJYtXcdrTgLvHHsbRcQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- Include jQuery and other required files for Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.0/umd/popper.min.js"
-        integrity="sha512-PZrlUFhlOigX38TOCMdaYkhiqa/fET/Lztzjn+kdGxefUZanNUfmHv+9M/wSiOHzlcLX/vcCnmvOZSHi5Dqrsw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
+        <!-- Include the file where the JSON data is stored -->
+        <script type="text/javascript" src="colleges.js"></script>
 
-    <!-- Include the JavaScript file for Bootstrap table -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.19.1/bootstrap-table.min.js"
-        integrity="sha512-SoNdA/8QMSSlEcJAXKdAALavPMfGJnoh/96Tosg3qxQhdktSAttyHT7ePJghxJNvLCeyJYtXcdrTgLvHHsbRcQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript">
+            var student = JSON.parse(localStorage.getItem("student"));
 
-    <!-- Include the file where the JSON data is stored -->
-    <script type="text/javascript" src="colleges.js"></script>
-
-    <script type="text/javascript">
-        var student = JSON.parse(localStorage.getItem("student"));
-
-        function getStudentData() {
-            /*
-            document.getElementById("studentDetails").value =
-                student.firstName + " " +
-                student.lastName + " " +
-                student.schoolName + " " +
-                student.gpaScore + " " +
-                student.actScore + " " +
-                student.apCount;
-            */
-        }
-    </script>
-    <script type="text/javascript">
-
-    </script>
-
-    <script type="text/javascript">
-        var gpaSafetyLevel = 0;
-        var gpaTargetLevel = 0;
-        var gpaReachLevel = 0;
-        var gpaHardLevel = 0;
-
-        var actSafetyLevel = 0;
-        var actTargetLevel = 0;
-        var actReachLevel = 0;
-        var actHardLevel = 0;
-
-        var apSafetyLevel = 0;
-        var apTargetLevel = 0;
-        var apReachLevel = 0;
-        var apHardLevel = 0;
-
-        var studentGPALevel = "";
-        var studentACTLevel = "";
-        var studentAPLevel = "";
-
-        var gpaMultiplier = 0;
-        var actMultiplier = 0;
-        var apMultiplier = 0;
-
-        const gpaWeight = 60;
-        const actWeight = 25;
-        const apWeight = 15;
-
-        var gpaPoints = 0;
-        var actPoints = 0;
-        var apPoints = 0;
-        
-        var totalPoints = 0;
-        var overallRec = "";
-
-        $(document).ready(function () {
-            getStudentData();
-        });
-
-        
-
-        function LinkFormatter(value, row, index) {
-            var params = new URLSearchParams();
-            params.append("collegeID", row.collegeID);
-
-            var customURL = "";
-            customURL = "college.html?" + params.toString();
-
-            //localStorage.setItem("college", JSON.stringify(arrdata[row.collegeID]));
-            //return "<a href='"+row.collegeURL+"'>"+value+"</a>";
-            return "<a href='"+customURL+"'>"+value+"</a>";
-        }
-
-        // Parse the imported data as JSON and store it
-        var mydata = JSON.parse(colleges);
-        let arrdata = [];
-        let i = 0, j = 0;
-        //console.log(mydata.length);
-        for (let id of mydata) {
-
-            studentGPALevel = "";
-            studentACTLevel = "";
-            studentAPLevel = "";
-
-            // Setting various baseline levels for GPA
-            if (id.baselineGPA == 'n/a') {
-                // Minimum GPA is 2.00. So making sure that all levels floor is 2.00
-                gpaSafetyLevel = 1.05 * 2;
-                gpaTargetLevel = 2;
-                gpaReachLevel = 2;
-                gpaHardLevel = 2;
-            } else {
-                // Calculating on the (105% - 100% - 95% - 90%) distribution
-                gpaSafetyLevel = 1.05 * id.baselineGPA;
-                gpaTargetLevel = 1.00 * id.baselineGPA;
-                gpaReachLevel = 0.95 * id.baselineGPA;
-                gpaHardLevel = 0.90 * id.baselineGPA;
+            function getStudentData() {
+                /*
+                document.getElementById("studentDetails").value =
+                    student.firstName + " " +
+                    student.lastName + " " +
+                    student.schoolName + " " +
+                    student.gpaScore + " " +
+                    student.actScore + " " +
+                    student.apCount;
+                */
             }
-            // Rounding to 2 decimals
-            gpaSafetyLevel = gpaSafetyLevel.toFixed(2);
-            gpaTargetLevel = gpaTargetLevel.toFixed(2);
-            gpaReachLevel = gpaReachLevel.toFixed(2);
-            gpaHardLevel = gpaHardLevel.toFixed(2);
+        </script>
+        <script type="text/javascript">
 
-            // Setting various baseline levels for ACT
-            if (id.baselineACT == 'n/a') {
-                // Many colleges don't require Test Scores
-                // Assumption: 18 overall is a good baseline for those college who accept Test Scores
-                actSafetyLevel = 1.10 * 18;
-                actTargetLevel = 1.00 * 18;
-                actReachLevel = 0.90 * 18;
-                actHardLevel = 0.80 * 18;
-            } else {
-                // Calculating on the (110% - 100% - 90% - 80%) distribution
-                actSafetyLevel = 1.10 * id.baselineACT;
-                actTargetLevel = 1.00 * id.baselineACT;
-                actReachLevel = 0.90 * id.baselineACT;
-                actHardLevel = 0.80 * id.baselineACT;
-            }
-            // Rounding to 0 decimals
-            actSafetyLevel = actSafetyLevel.toFixed(0);
-            actTargetLevel = actTargetLevel.toFixed(0);
-            actReachLevel = actReachLevel.toFixed(0);
-            actHardLevel = actHardLevel.toFixed(0);
+        </script>
 
-            // Setting various baseline levels for AP Courses
-            if (id.baselineAPCount == 0) {
-                apSafetyLevel = 1;
-                apTargetLevel = 0;
-                apReachLevel = 0;
-                apHardLevel = 0;
-            } else {
-                // Calculating on the (120% - 100% - 80% - 60%) distribution
-                apSafetyLevel = 1.20 * id.baselineAPCount;
-                apTargetLevel = 1.00 * id.baselineAPCount;
-                apReachLevel =  0.80 * id.baselineAPCount;
-                apHardLevel = 0.60 * id.baselineAPCount;
-            }
-            // Rounding to 0 decimals
-            apSafetyLevel = apSafetyLevel.toFixed(0);
-            apTargetLevel = apTargetLevel.toFixed(0);
-            apReachLevel = apReachLevel.toFixed(0);
-            apHardLevel = apHardLevel.toFixed(0);
+        <script type="text/javascript">
+            var gpaSafetyLevel = 0;
+            var gpaTargetLevel = 0;
+            var gpaReachLevel = 0;
+            var gpaHardLevel = 0;
 
-            //console.log(id.collegeName + " -> " + id.baselineGPA + " -> " + gpaHardLevel);
-            //console.log(id.collegeName + " -> " + id.baselineACT + " -> " + actHardLevel);
-            //console.log(id.collegeName + " -> " + id.baselineAPCount + " -> " + apHardLevel);
+            var actSafetyLevel = 0;
+            var actTargetLevel = 0;
+            var actReachLevel = 0;
+            var actHardLevel = 0;
 
-            // Determine GPA Level
-            if (student.gpaScore >= gpaSafetyLevel) {
-                studentGPALevel = "SAFETY";
-                gpaMultiplier = 2;
-            } else if (student.gpaScore >= gpaTargetLevel) {
-                studentGPALevel = "TARGET";
-                gpaMultiplier = 1;
-            } else if (student.gpaScore >= gpaReachLevel) {
-                studentGPALevel = "REACH";
-                gpaMultiplier = 0.5;
-            } else {
-                studentGPALevel = "HARD";
-                gpaMultiplier = -2;
+            var apSafetyLevel = 0;
+            var apTargetLevel = 0;
+            var apReachLevel = 0;
+            var apHardLevel = 0;
+
+            var studentGPALevel = "";
+            var studentACTLevel = "";
+            var studentAPLevel = "";
+
+            var gpaMultiplier = 0;
+            var actMultiplier = 0;
+            var apMultiplier = 0;
+
+            const gpaWeight = 60;
+            const actWeight = 25;
+            const apWeight = 15;
+
+            var gpaPoints = 0;
+            var actPoints = 0;
+            var apPoints = 0;
+
+            var totalPoints = 0;
+            var overallRec = "";
+
+            $(document).ready(function () {
+                getStudentData();
+            });
+
+            function LinkFormatter(value, row, index) {
+                var params = new URLSearchParams();
+                params.append("collegeID", row.collegeID);
+
+                var customURL = "";
+                customURL = "college.html?" + params.toString();
+
+                return "<a href='" + customURL + "'>" + value + "</a>";
             }
 
-            //console.log("################# START HERE #################");
+            // Parse the imported data as JSON and store it
+            var mydata = JSON.parse(colleges);
+            let arrdata = [];
+            let i = 0, j = 0;
 
-            // console.log("[GPA]" + gpaSafetyLevel + " / " + gpaTargetLevel + " / " + gpaReachLevel + " / " + gpaHardLevel);
-            // console.log("[GPA]" + id.collegeName + " -> " + id.baselineGPA + " -> " + student.gpaScore + " -> " + studentGPALevel);
+            for (let id of mydata) {
 
-            // Determine ACT Level
-            if (student.actScore >= actSafetyLevel) {
-                studentACTLevel = "SAFETY"
-                actMultiplier = 2
-            } else if (student.actScore >= actTargetLevel) {
-                studentACTLevel = "TARGET"
-                actMultiplier = 1
-            } else if (student.actScore >= actReachLevel) {
-                studentACTLevel = "REACH"
-                actMultiplier = 0.5
-            } else {
-                studentACTLevel = "HARD"
-                actMultiplier = -2
-            }
+                studentGPALevel = "";
+                studentACTLevel = "";
+                studentAPLevel = "";
 
-            // console.log("[ACT]" + actSafetyLevel + " / " + actTargetLevel + " / " + actReachLevel + " / " + actHardLevel);
-            // console.log("[ACT]" + id.collegeName + " -> " + id.baselineACT + " -> " + student.actScore + " -> " + studentACTLevel);
+                // Setting various baseline levels for GPA
+                if (id.baselineGPA == 'n/a') {
+                    // Minimum GPA is 2.00. So making sure that all levels floor is 2.00
+                    gpaSafetyLevel = 1.05 * 2;
+                    gpaTargetLevel = 2;
+                    gpaReachLevel = 2;
+                    gpaHardLevel = 2;
+                } else {
+                    // Calculating on the (105% - 100% - 95% - 90%) distribution
+                    gpaSafetyLevel = 1.05 * id.baselineGPA;
+                    gpaTargetLevel = 1.00 * id.baselineGPA;
+                    gpaReachLevel = 0.95 * id.baselineGPA;
+                    gpaHardLevel = 0.90 * id.baselineGPA;
+                }
+                // Rounding to 2 decimals
+                gpaSafetyLevel = gpaSafetyLevel.toFixed(2);
+                gpaTargetLevel = gpaTargetLevel.toFixed(2);
+                gpaReachLevel = gpaReachLevel.toFixed(2);
+                gpaHardLevel = gpaHardLevel.toFixed(2);
 
-            // Determine AP rigor Level
-            if (student.apCount >= apSafetyLevel) {
-                studentAPLevel = "SAFETY";
-                apMultiplier = 2;
-                console.log("Here 1");
-            } else if (student.apCount >= apTargetLevel) {
-                studentAPLevel = "TARGET";
-                apMultiplier = 1;
-                console.log("Here 2");
-            } else if (student.apCount >= apReachLevel) {
-                studentAPLevel = "REACH";
-                apMultiplier = 0.5;
-                console.log("Here 3");
-            } else {
-                studentAPLevel = "HARD";
-                apMultiplier = -2;
-                console.log("Here 4");
-            }
-            
-            //console.log("[AP]" + apSafetyLevel + " / " + apTargetLevel + " / " + apReachLevel + " / " + apHardLevel);
-            //console.log("[AP]" + id.collegeName + " -> " + id.baselineAPCount + " -> " + student.apCount + " -> " + studentAPLevel);
+                // Setting various baseline levels for ACT
+                if (id.baselineACT == 'n/a') {
+                    // Many colleges don't require Test Scores
+                    // Assumption: 18 overall is a good baseline for those college who accept Test Scores
+                    actSafetyLevel = 1.10 * 18;
+                    actTargetLevel = 1.00 * 18;
+                    actReachLevel = 0.90 * 18;
+                    actHardLevel = 0.80 * 18;
+                } else {
+                    // Calculating on the (110% - 100% - 90% - 80%) distribution
+                    actSafetyLevel = 1.10 * id.baselineACT;
+                    actTargetLevel = 1.00 * id.baselineACT;
+                    actReachLevel = 0.90 * id.baselineACT;
+                    actHardLevel = 0.80 * id.baselineACT;
+                }
+                // Rounding to 0 decimals
+                actSafetyLevel = actSafetyLevel.toFixed(0);
+                actTargetLevel = actTargetLevel.toFixed(0);
+                actReachLevel = actReachLevel.toFixed(0);
+                actHardLevel = actHardLevel.toFixed(0);
 
-            gpaPoints = gpaWeight * gpaMultiplier;
-            actPoints = actWeight * actMultiplier;
-            apPoints = apWeight * apMultiplier;
+                // Setting various baseline levels for AP Courses
+                if (id.baselineAPCount == 0) {
+                    apSafetyLevel = 1;
+                    apTargetLevel = 0;
+                    apReachLevel = 0;
+                    apHardLevel = 0;
+                } else {
+                    // Calculating on the (120% - 100% - 80% - 60%) distribution
+                    apSafetyLevel = 1.20 * id.baselineAPCount;
+                    apTargetLevel = 1.00 * id.baselineAPCount;
+                    apReachLevel = 0.80 * id.baselineAPCount;
+                    apHardLevel = 0.60 * id.baselineAPCount;
+                }
+                // Rounding to 0 decimals
+                apSafetyLevel = apSafetyLevel.toFixed(0);
+                apTargetLevel = apTargetLevel.toFixed(0);
+                apReachLevel = apReachLevel.toFixed(0);
+                apHardLevel = apHardLevel.toFixed(0);
 
-            totalPoints = gpaPoints + actPoints + apPoints;
+                // Determine GPA Level
+                if (student.gpaScore >= gpaSafetyLevel) {
+                    studentGPALevel = "SAFETY";
+                    gpaMultiplier = 2;
+                } else if (student.gpaScore >= gpaTargetLevel) {
+                    studentGPALevel = "TARGET";
+                    gpaMultiplier = 1;
+                } else if (student.gpaScore >= gpaReachLevel) {
+                    studentGPALevel = "REACH";
+                    gpaMultiplier = 0.5;
+                } else {
+                    studentGPALevel = "HARD";
+                    gpaMultiplier = -2;
+                }
 
-            if (totalPoints >= 120) {
-                overallRec = "Safety";
-            } else if (totalPoints >= 100) {
-                overallRec = "Target";
-            } else if (totalPoints >= 80) {
-                overallRec = "Reach";
-            } else {
-                overallRec = "Hard Reach";
-            }
+                // Determine ACT Level
+                if (student.actScore >= actSafetyLevel) {
+                    studentACTLevel = "SAFETY"
+                    actMultiplier = 2
+                } else if (student.actScore >= actTargetLevel) {
+                    studentACTLevel = "TARGET"
+                    actMultiplier = 1
+                } else if (student.actScore >= actReachLevel) {
+                    studentACTLevel = "REACH"
+                    actMultiplier = 0.5
+                } else {
+                    studentACTLevel = "HARD"
+                    actMultiplier = -2
+                }
 
-            //console.log(id.collegeName + " >> " + studentGPALevel + " / " + studentACTLevel + " / " + studentAPLevel + " = " + overallRec);
-            arrdata.push(
+                // Determine AP rigor Level
+                if (student.apCount >= apSafetyLevel) {
+                    studentAPLevel = "SAFETY";
+                    apMultiplier = 2;
+                } else if (student.apCount >= apTargetLevel) {
+                    studentAPLevel = "TARGET";
+                    apMultiplier = 1;
+                } else if (student.apCount >= apReachLevel) {
+                    studentAPLevel = "REACH";
+                    apMultiplier = 0.5;
+                } else {
+                    studentAPLevel = "HARD";
+                    apMultiplier = -2;
+                }
+
+                gpaPoints = gpaWeight * gpaMultiplier;
+                actPoints = actWeight * actMultiplier;
+                apPoints = apWeight * apMultiplier;
+
+                totalPoints = gpaPoints + actPoints + apPoints;
+
+                if (totalPoints >= 120) {
+                    overallRec = "Safety";
+                } else if (totalPoints >= 100) {
+                    overallRec = "Target";
+                } else if (totalPoints >= 80) {
+                    overallRec = "Reach";
+                } else {
+                    overallRec = "Hard Reach";
+                }
+
+                arrdata.push(
                     {
-                    "collegeID" : id.collegeID,
-                    "collegeName" : id.collegeName,
-                    "collegeType" : id.collegeType,
-                    "profileImage" : id.profileImage,
-                    "collegeURL" : id.collegeURL,
-                    "locationCity" : id.locationCity,
-                    "locationState" : id.locationState,
-                    "baselineACT" : id.baselineACT,
-                    "baselineGPA" : id.baselineGPA,
-                    "baselineAPCount" : id.baselineAPCount,
-                    "acceptanceRate" : id.acceptanceRate,
-                    "tuitionInState" : id.tuitionInState,
-                    "tuitionOutOfState" : id.tuitionOutOfState,
-                    "exclude" : id.exclude,
-                    "firstName" : student.firstName,
-                    "lastName" : student.lastName,
-                    "schoolName" : student.schoolName,
-                    "gpaScore" : student.gpaScore,
-                    "actScore" : student.actScore,
-                    "apCount" : student.apCount,
-                    "totalPoints" : totalPoints,
-                    "overallRec" : overallRec
+                        "collegeID": id.collegeID,
+                        "collegeName": id.collegeName,
+                        "collegeType": id.collegeType,
+                        "profileImage": id.profileImage,
+                        "collegeURL": id.collegeURL,
+                        "locationCity": id.locationCity,
+                        "locationState": id.locationState,
+                        "baselineACT": id.baselineACT,
+                        "baselineGPA": id.baselineGPA,
+                        "baselineAPCount": id.baselineAPCount,
+                        "acceptanceRate": id.acceptanceRate,
+                        "tuitionInState": id.tuitionInState,
+                        "tuitionOutOfState": id.tuitionOutOfState,
+                        "exclude": id.exclude,
+                        "firstName": student.firstName,
+                        "lastName": student.lastName,
+                        "schoolName": student.schoolName,
+                        "gpaScore": student.gpaScore,
+                        "actScore": student.actScore,
+                        "apCount": student.apCount,
+                        "totalPoints": totalPoints,
+                        "overallRec": overallRec
                     }
-            );
-            localStorage.setItem("college-" + id.collegeID, JSON.stringify(arrdata[i]));
-            i++;
-        }
-        i = 0;
-        for (let id of arrdata) {
-            //console.log(arrdata[i]);
-            i++
-        }
+                );
+                localStorage.setItem("college-" + id.collegeID, JSON.stringify(arrdata[i]));
+                i++;
+            }
+            i = 0;
+            for (let id of arrdata) {
+                i++
+            }
 
-        var $table = $('#table');
-        $table.bootstrapTable({data: arrdata});
-        
-    </script>
+            var $table = $('#table');
+            $table.bootstrapTable({ data: arrdata });
+
+        </script>
+        <script type="text/javascript">
+            var $table = $('#table');
+            var showAll = "";
+            var showSafety = "";
+            var showTarget = "";
+            var showReach = "";
+            var showHard = "";
+
+            $(document).on('change', '#allRadio', function () {
+                if (this.checked) {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Safety", "Target", "Reach", "Hard Reach"] });
+                } 
+            });
+
+            $(document).on('change', '#safetyRadio', function () {
+                if (this.checked) {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Safety"] })
+                }
+            });
+
+            $(document).on('change', '#targetRadio', function () {
+                if (this.checked) {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Target"] })
+                }
+            });
+
+            $(document).on('change', '#reachRadio', function () {
+                if (this.checked) {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Reach"] })
+                }
+            });
+
+            $(document).on('change', '#hardRadio', function () {
+                if (this.checked) {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Hard Reach"] })
+                }
+            });
+
+            function filterColleges() {
+
+                if (showAll == "All") {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Safety", "Target", "Reach", "Hard Reach"] });
+                }
+                if (showSafety == "Safety") {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Safety"] })
+                }
+                if (showTarget == "Target") {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Target"] })
+                }
+                if (showReach == "Reach") {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Reach"] })
+                }
+                if (showHard == "Hard Reach") {
+                    $table.bootstrapTable('filterBy', { overallRec: ["Hard Reach"] })
+                }
+
+            }
+        </script>
 </body>
 
 </html>
